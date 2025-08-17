@@ -10,10 +10,9 @@ private:
     // ustaw maszyne losującą
     std::random_device rd;
     std::mt19937 gen;
-    std::uniform_int_distribution<int> char_dist;
     std::uniform_int_distribution<int> int_dist;
 public:
     Key(LogWriter& log);
-    std::string random_key(int& size, size_t key_len = 0);
+    int random_key();
     static int randint(int beg, int end);
 };

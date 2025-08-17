@@ -13,6 +13,9 @@ set(src
     encryption/encryption/keygenerator.cpp
     encryption/io/userio.cpp
     main/menu/menu.cpp
+    main/menu/menu_encrypt.cpp
+    main/menu/menu_decrypt.cpp
+    main/menu/menu_key.cpp
 )
 message(STATUS "Ustawiono docelowe pliki")
 add_executable(${project_name} ${src})

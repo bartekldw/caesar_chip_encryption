@@ -1,0 +1,10 @@
+[2025-08-17, 14:41:12] [INFO] Log module loaded
+[2025-08-17, 14:41:12] [INFO] File system init succesfull
+[2025-08-17, 14:41:12] [ASK] Asking user for menu operation
+[2025-08-17, 14:41:13] [INFO] User is generating random key
+[2025-08-17, 14:41:13] [KEY] Succesfully created unique key
+[2025-08-17, 14:41:13] [INFO] Copied key to clipboard
+[2025-08-17, 14:41:13] [INFO] Saved key to bin file (../saved/key_10/unique_key_10.bin)
+[2025-08-17, 14:41:13] [INFO] Saved key to txt file (../saved/key_10/unique_key_10.txt)
+[2025-08-17, 14:41:13] [INFO] Updated json config state
+[2025-08-17, 14:41:13] [INFO] Ended LOG module succesfully!

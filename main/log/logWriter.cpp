@@ -66,9 +66,9 @@ void LogWriter::write(log_type type, std::string_view log_msg, bool same_console
 std::string LogWriter::return_log_type_con(log_type type) {
     switch (type) {
         case log_type::ASK:
-            return std::string(ansi::gray) + "[" + ansi::green + "?" + ansi::gray + "] " + ansi::reset;
+            return std::string(ansi::gray) + "[" + ansi::red + "?" + ansi::gray + "] " + ansi::reset;
         case log_type::ERROR:
-            return std::string(ansi::gray) + "[" + ansi::red + "!" + ansi::gray + "] " + ansi::reset;
+            return std::string(ansi::gray) + "[" + ansi::green + "!" + ansi::gray + "] " + ansi::reset;
         case log_type::INFO:
             return std::string(ansi::gray) + "[" + ansi::blue + "!" + ansi::gray + "] " + ansi::reset;
         case log_type::WARNING:
@@ -76,7 +76,7 @@ std::string LogWriter::return_log_type_con(log_type type) {
         case log_type::INVALID:
             return std::string(ansi::gray) + "[" + ansi::gray + "?" + ansi::gray + "] " + ansi::reset;
         case log_type::KEY:
-            return std::string(ansi::gray) + "[" + ansi::green+ "KEY" + ansi::gray + "] " + ansi::reset;
+            return std::string(ansi::gray) + "[" + ansi::red+ "KEY" + ansi::gray + "] " + ansi::reset;
         default:
             return std::string(ansi::gray) + "[" + ansi::gray + "?" + ansi::gray + "] " + ansi::reset;
     }
