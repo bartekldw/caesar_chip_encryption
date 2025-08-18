@@ -5,6 +5,7 @@
 #include <cstdlib>
 #endif
 #include <iostream>
+#include <string>
 #include <string_view> // dla wyświetlania kolorów, alternatywa dla std::string - szybsza
 #include "../main/log/logWriter.hpp"
 // Struktura przechowująca kolory ANSI oraz funkcja sparwdzająca kompatybilność konsoli z ANSI
@@ -31,4 +32,6 @@ struct ansi{
 struct con{
     static void copyToClipboard(LogWriter& log, const std::string& msg, int& err_stat);
     static void print_encrypt_header(bool decrypting = false);
+    static std::u32string to_u32string(const std::string& str);
+    static std::u32string to_utf8string(const std::u32string& str32);
 };

@@ -1,39 +1,39 @@
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 #include <thread>
 #include <chrono>
 #include "../main/log/logWriter.hpp"
 #include "io/userio.hpp"
 #include "encryption/encryption.hpp"
+#include "../external/utfcpp/utf8.h"
 Encryption::Encryption(LogWriter& log) : log(log){};
 // Główna funkcja do szyfrowania
-std::string Encryption::xor_encrypt(const std::string& msg, bool decrypting){
-    std::string result;
-    std::cout << std::setw(2) << std::setfill('0');
-    for(size_t i = 0; i < msg.size(); ++i){
-        char target = msg[i] ^ key[i % key.size()];
-        for(int c = 32; c < 127; ++c){
-            ansi::clear_console();
-            con::print_encrypt_header(decrypting);
-            std::cout << std::hex;
-            for(const auto& element : result){
-                std::cout << (int)element << " ";
-            }
-            if(i == msg.size() - 1){
-                std::cout << (int)result.back() << "\n";
-            }else{
-                std::cout << std::dec;
-                std::cout << ansi::green << (char)c << ansi::reset << "\n";
-            }
-            std::cout << std::dec;
-            std::this_thread::sleep_for(std::chrono::milliseconds(3));
-            if(char(c) == target){
-                break;
-            }
-        }
-        result += target;
+std::string Encryption::ceaser_chip_encrypt(const std::string& msg){
+    // krok 1: UTF-8 -> UTF-32
+    std::u32string msg32;
+    auto it = msg.begin();
+    while (it != msg.end()) {
+        char32_t cp = utf8::unchecked::next(it); // pobiera pełny znak
+        msg32 += cp;
     }
-    ansi::clear_console();
+    // krok 2: szyfrowanie
+    std::u32string result32;
+    int n = alph.size();
+    for (char32_t element : msg32) {
+        auto pos = alph.find(element);
+        if (pos == std::u32string::npos) {
+            result32.push_back(element); // znak spoza alfabetu zostaje
+            continue;
+        }
+        int new_index = ((pos + key) % n + n) % n;
+        result32.push_back(alph[new_index]);
+    }
+
+    // krok 3: UTF-32 -> UTF-8
+    std::string result;
+    utf8::unchecked::utf32to8(result32.begin(), result32.end(), std::back_inserter(result));
+
     return result;
 }
 // Statyczna funkcja do zwracania bajtowej reprezentacji znaków

@@ -2,6 +2,8 @@
 #include <windows.h>
 #endif // _WIN32
 #include <iostream>
+#include <codecvt>
+#include <locale>
 #include "io/userio.hpp"
 #include "../main/log/logWriter.hpp"
 // Główna funkcja struktury ansiCol: ansi_ok() - sprawdza czy konsola obsługuje wypisywanie znaków ANSI (kolorwanie tekstu)
@@ -69,7 +71,8 @@ void con::copyToClipboard(LogWriter& log, const std::string& msg, int& err_stat)
 
 // Funkcja wyświetlająca nagłówek podczasz szyfrowania
 void con::print_encrypt_header(bool decrypting){
-     std::cout << ansi::green << "▄▄▄▄▄▄▄▄▄▄▄       ▖▖▄▖▄▖\n" << 
-                                 (decrypting ? "Des" : "S") << "zyfrowanie" << "       ▚▘▌▌▙▘\n" << ansi::reset << 
-                                 "twojej wiadomości" << ansi::green << " ▌▌▙▌▌▌\n" << ansi::reset;
+     std::cout << ansi::red << "▄▄▄▄▄▄▄▄▄▄▄  ▄▖▄▖▄▖▄▖▄▖▄▖\n" << 
+                               (decrypting ? "De" : "S") << "zyfrowanie" << (decrypting ? "" : " ") << "  ▌ ▌▌▙▖▚ ▌▌▙▘\n" << ansi::reset << 
+                               "twojej wiadomości" << ansi::red << "  ▙▖▛▌▙▖▄▌▛▌▌▌\n" << ansi::reset;
 }
+

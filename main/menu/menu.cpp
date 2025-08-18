@@ -30,10 +30,10 @@ void Menu::print(){
         // wyświetlanie błędów
         switch(err){
             case (error_state::CIN):
-                log.write(LogWriter::log_type::WARNING, "User entered wrong data\n", false, std::string(ansi::red)+"Błędne dane!\n");
+                log.write(LogWriter::log_type::WARNING, "User entered wrong data\n", false, std::string(ansi::blue)+"Błędne dane!\n");
                 break;
             case (error_state::NUM):
-                log.write(LogWriter::log_type::WARNING, "User entered wrong number\n", false, std::string(ansi::red)+"Wprowadź poprawną liczbe!\n");
+                log.write(LogWriter::log_type::WARNING, "User entered wrong number\n", false, std::string(ansi::blue)+"Wprowadź poprawną liczbe!\n");
                 break;
         }
         // pobierz dane od użytkownika
@@ -97,7 +97,7 @@ void Menu::random_key(){
 void Menu::encrypt_key(){
     int type = get_message_mode(); // type: 1-szyfrowanie pliku .txt, 2-szyfrowanie ciagu znakow 
     std::string msg;
-    std::string key;
+    int key;
     // pobierz ciąg
     switch(type){
         case 1: // szyfrowanie z pliku .txt
@@ -105,20 +105,26 @@ void Menu::encrypt_key(){
         case 2: // szyfrowanie z ciągu znaków
             get_message_from_output(msg); break;
     }
+    // debug
+    std::cout << "msg: " << msg << std::endl;
+    std::cin.get();
     // pobierz klucz i ustaw go w klasie szyfrowania
-    get_key_from_user(key, msg.size());
+    get_key_from_user(key);
     encryption.set_key(key);
+    // debug
+    std::cout << "key: " << key << std::endl;
+    std::cin.get();
     // rozpocznij generowanie
-    std::string encrypted = encryption.xor_encrypt(msg);
+    std::string encrypted = encryption.ceaser_chip_encrypt(msg);
     // wywołaj moduły po wygenerowaniu klucza
-    encrypt_modules(encrypted, key);
+    encrypt_modules(encrypted, std::to_string(key));
 }
 // Funkcja do deszyfrowania wiadomości i wyświetlania deszyfrowanego ciągu
 void Menu::decrypt_key(){
     int type = get_decoding_mode(); // type: 1-szyfrowanie pliku .txt, 2-szyfrowanie ciagu znakow 
     int style = get_decoding_style_mode(); // msg style: 1 - HEX, 2 - Char (DEC)
     std::string encrypted_msg;
-    std::string key;
+    int key;
     // pobierz ciag
     switch(type){
         case 1: // szyfrowanie z pliku .txt
@@ -126,11 +132,11 @@ void Menu::decrypt_key(){
         case 2: // szyfrowanie z ciągu znaków
             get_message_from_output(encrypted_msg); break;
     }
-    get_key_to_decode(key, encrypted_msg, (style == 1));
+    //get_key_to_decode(key, encrypted_msg, (style == 1));
     if(style == 1){
         encrypted_msg = hex_to_dec(encrypted_msg);
     }
     encryption.set_key(key);
-    std::string decrypted = encryption.xor_encrypt(encrypted_msg, true);
+    std::string decrypted = encryption.ceaser_chip_encrypt(encrypted_msg);
     decrypt_modules(decrypted);
 }

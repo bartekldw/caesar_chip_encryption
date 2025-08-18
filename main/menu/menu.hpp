@@ -19,14 +19,12 @@ private:
     enum class error_state {NONE, CIN, NUM};
     // pomocnicze funkcje:
     // dla klucza:
-    void get_key_from_user(int& len, std::string& str_len);
-    void random_key(bool alphabet_mode);
     void create_key_modules(const std::string& key, int key_files_count);
     // dla szyfrowania:
     int get_message_mode();
     void get_message_from_file(std::string& msg);
     void get_message_from_output(std::string& msg);
-    void get_key_from_user(std::string& key, size_t msg_size);
+    void get_key_from_user(int& key);
     void encrypt_modules(const std::string& msg, const std::string& key);
     void encrypt_save_modules(const std::string& msg, const std::string& hex_msg);
     // dla deszyfrowania:

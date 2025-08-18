@@ -10,7 +10,7 @@ Key::Key(LogWriter& log) : log(log), gen(rd()), int_dist(32,128) //33 - 126 = dr
 }
 // Funkcja do generowania losowego klucza 
 int Key::random_key(){
-    std::uniform_int_distribution<int> alp_dist (0,31);
+    std::uniform_int_distribution<int> alp_dist (0,63);
     return alp_dist(gen);
 }
 // Statyczna funkcja do losowania liczb (używana bez obiektu)
