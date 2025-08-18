@@ -34,4 +34,6 @@ struct con{
     static void print_encrypt_header(bool decrypting = false);
     static std::u32string to_u32string(const std::string& str);
     static std::u32string to_utf8string(const std::u32string& str32);
+    static std::string u32char_to_utf8(char32_t cp);
+    static std::string u32str_to_utf8(const std::u32string& s32);
 };

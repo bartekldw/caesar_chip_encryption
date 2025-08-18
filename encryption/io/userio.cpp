@@ -2,6 +2,7 @@
 #include <windows.h>
 #endif // _WIN32
 #include <iostream>
+#include "../external/utfcpp/utf8.h"
 #include <codecvt>
 #include <locale>
 #include "io/userio.hpp"
@@ -71,8 +72,23 @@ void con::copyToClipboard(LogWriter& log, const std::string& msg, int& err_stat)
 
 // Funkcja wyświetlająca nagłówek podczasz szyfrowania
 void con::print_encrypt_header(bool decrypting){
-     std::cout << ansi::red << "▄▄▄▄▄▄▄▄▄▄▄  ▄▖▄▖▄▖▄▖▄▖▄▖\n" << 
-                               (decrypting ? "De" : "S") << "zyfrowanie" << (decrypting ? "" : " ") << "  ▌ ▌▌▙▖▚ ▌▌▙▘\n" << ansi::reset << 
+     std::cout << ansi::red << "▄▄▄▄▄▄▄▄▄▄▄        ▄▖▄▖▄▖▄▖▄▖▄▖\n" << 
+                               (decrypting ? "De" : "S") << "zyfrowanie" << (decrypting ? "" : " ") << "       ▌ ▌▌▙▖▚ ▌▌▙▘\n" << ansi::reset << 
                                "twojej wiadomości" << ansi::red << "  ▙▖▛▌▙▖▄▌▛▌▌▌\n" << ansi::reset;
 }
 
+
+// Funkcja zamieniajaca U+XXXX na UTF-8
+std::string con::u32char_to_utf8(char32_t cp) {
+    std::string out;
+    utf8::unchecked::append(cp, std::back_inserter(out));
+    return out;
+}
+
+// Funkcja zamieniająca u32string na UTF-8
+// u32string -> UTF-8
+std::string con::u32str_to_utf8(const std::u32string& s32) {
+    std::string out;
+    utf8::unchecked::utf32to8(s32.begin(), s32.end(), std::back_inserter(out));
+    return out;
+}

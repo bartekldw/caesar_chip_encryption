@@ -21,12 +21,22 @@ std::string Encryption::ceaser_chip_encrypt(const std::string& msg){
     std::u32string result32;
     int n = alph.size();
     for (char32_t element : msg32) {
+        // krok 2.1: znajdz aktualny indeks
         auto pos = alph.find(element);
         if (pos == std::u32string::npos) {
             result32.push_back(element); // znak spoza alfabetu zostaje
             continue;
         }
         int new_index = ((pos + key) % n + n) % n;
+        // krok 2.2: animacje:
+        for(size_t i = 0; i < new_index; ++i){
+            ansi::clear_console();
+            con::print_encrypt_header(false);
+            std::cout << con::u32str_to_utf8(result32);
+            std::cout << ansi::red << con::u32char_to_utf8(alph[i]) << "\n";
+            std::this_thread::sleep_for(std::chrono::milliseconds(3));
+
+        }
         result32.push_back(alph[new_index]);
     }
 

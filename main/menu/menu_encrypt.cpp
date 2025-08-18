@@ -200,8 +200,8 @@ void Menu::get_key_from_user(int& key){
 void Menu::encrypt_modules(const std::string& msg, const std::string& key){
     ansi::clear_console();
     std::cout << ansi::red << "▄▄▄▄▄▄▄▄▄▄▄   ▄▖▄▖▄▖▄▖▄▖▄▖\n" << 
-                              "Pomyślnie" << "   ▌ ▌▌▙▖▚ ▌▌▙▘\n" << 
-                              "zaszyfrowano!" << ansi::red << "    ▙▖▛▌▙▖▄▌▛▌▌▌\n" << ansi::reset;
+                              "Pomyślnie" << "     ▌ ▌▌▙▖▚ ▌▌▙▘\n" << 
+                              "zaszyfrowano!" << ansi::red << " ▙▖▛▌▙▖▄▌▛▌▌▌\n" << ansi::reset;
     log.write(LogWriter::log_type::KEY, "Sucesfully encoded message with Caesar's chip\n", false, msg);
     std::cout << std::string(ansi::gray) << " [" << ansi::red << "CHAR" << ansi::gray << "]\n" << ansi::reset;
     std::cout << ansi::red << "Użyto klucza:\n";
