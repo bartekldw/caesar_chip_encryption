@@ -10,7 +10,7 @@
 #include "io/userio.hpp"
 #include "io/file.hpp"
 // Główny konstruktor klasy Menu - inicjalizuje klase log, klase kluczy oraz klase encryption, konstruuje system plików
-Menu::Menu() : log(), keys_manager(log), encryption(log){
+Menu::Menu() : log(), keys_manager(log){
     log.write(LogWriter::log_type::INFO, "Log module loaded\n");
     file::init();
     log.write(LogWriter::log_type::INFO, "File system init succesfull\n");
@@ -122,7 +122,6 @@ void Menu::encrypt_key(){
 // Funkcja do deszyfrowania wiadomości i wyświetlania deszyfrowanego ciągu
 void Menu::decrypt_key(){
     int type = get_decoding_mode(); // type: 1-szyfrowanie pliku .txt, 2-szyfrowanie ciagu znakow 
-    int style = get_decoding_style_mode(); // msg style: 1 - HEX, 2 - Char (DEC)
     std::string encrypted_msg;
     int key;
     // pobierz ciag
@@ -132,11 +131,8 @@ void Menu::decrypt_key(){
         case 2: // szyfrowanie z ciągu znaków
             get_message_from_output(encrypted_msg); break;
     }
-    //get_key_to_decode(key, encrypted_msg, (style == 1));
-    if(style == 1){
-        encrypted_msg = hex_to_dec(encrypted_msg);
-    }
+    get_key_to_decode(key, encrypted_msg);
     encryption.set_key(key);
-    std::string decrypted = encryption.ceaser_chip_encrypt(encrypted_msg);
+    std::string decrypted = encryption.ceaser_chip_decrypt(encrypted_msg);
     decrypt_modules(decrypted);
 }

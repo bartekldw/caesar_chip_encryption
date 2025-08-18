@@ -1,1 +1,10 @@
-Cześć to jest wiadomość do zaszyfrowania
+Był ciepły letni wieczór, kiedy Bartek wracał do domu na rowerze.  
+Na horyzoncie powoli gasło słońce, a niebo nabierało odcieni czerwieni.  
+W oddali słychać było szczekanie psa, a gdzieś obok zaszczekał drugi.  
+Liście drzew szumiały cicho, poruszane lekkim wiatrem od północy.  
+Światła latarni zapalały się jedno po drugim, tworząc złote alejki.  
+Kot sąsiada przeskoczył przez płot i zniknął w gęstych krzakach.  
+Bartek pomyślał o jutrzejszym dniu w szkole i sprawdzianie z matematyki.  
+Mimo zmęczenia czuł w sobie spokój, jakby świat na chwilę się zatrzymał.  
+W kieszeni miał telefon, na którym zapisane były jego notatki z C++.  
+Uśmiechnął się lekko, wiedząc że każdy dzień to nowa przygoda i wyzwanie.

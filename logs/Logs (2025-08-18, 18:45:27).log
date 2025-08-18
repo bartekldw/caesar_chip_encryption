@@ -1,0 +1,38 @@
+[2025-08-18, 18:45:27] [INFO] Log module loaded
+[2025-08-18, 18:45:27] [INFO] File system init succesfull
+[2025-08-18, 18:45:27] [ASK] Asking user for menu operation
+[2025-08-18, 18:45:28] [INFO] User is encrypting message
+[2025-08-18, 18:45:28] [ASK] Asking user for encrypt mode
+[2025-08-18, 18:45:28] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:08] [WARNING] User entered wrong data
+[2025-08-18, 18:46:08] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:08] [WARNING] User entered wrong data
+[2025-08-18, 18:46:08] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:08] [WARNING] User entered wrong data
+[2025-08-18, 18:46:08] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:09] [WARNING] User entered wrong data
+[2025-08-18, 18:46:09] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:09] [WARNING] User entered wrong data
+[2025-08-18, 18:46:09] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:09] [WARNING] User entered wrong data
+[2025-08-18, 18:46:09] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:09] [WARNING] User entered wrong data
+[2025-08-18, 18:46:09] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:09] [WARNING] User entered wrong data
+[2025-08-18, 18:46:09] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:10] [WARNING] User entered wrong data
+[2025-08-18, 18:46:10] [ASK] Asking user for regular string to encrypt
+[2025-08-18, 18:46:14] [ASK] Asking user for key
+[2025-08-18, 18:46:16] [KEY] Succesfully created unique key
+[2025-08-18, 18:46:16] [INFO] Copied key to clipboard
+[2025-08-18, 18:46:16] [INFO] Saved key to bin file (../saved/key_52/unique_key_52.bin)
+[2025-08-18, 18:46:16] [INFO] Updated json config state
+[2025-08-18, 18:46:16] [ASK] Ending key generation module
+[2025-08-18, 18:46:17] [ASK] Ending key generation
+[2025-08-18, 18:46:38] [KEY] Sucesfully encoded message with Caesar's chip
+[2025-08-18, 18:46:38] [KEY] Displaying used key
+[2025-08-18, 18:46:38] [INFO] Saved char encrypted message to bin file (../encrypted/encrypted_30/char_unique_key_30.bin)
+[2025-08-18, 18:46:38] [INFO] Saved char encrypted message to txt file (../encrypted/encrypted_30/hex_unique_key_30.txt)
+[2025-08-18, 18:46:38] [INFO] Updated json config state
+[2025-08-18, 18:46:38] [ASK] Ending encrypting module
+[2025-08-18, 18:47:02] [INFO] Ended LOG module succesfully!

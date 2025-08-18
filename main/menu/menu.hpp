@@ -32,7 +32,7 @@ private:
     int get_decoding_style_mode();
     void get_encoded_message_from_file(std::string& encoded);
     void get_encoded_message_from_output(std::string& encoded);
-    void get_key_to_decode(std::string& key, const std::string& msg, bool hex_default);
+    void get_key_to_decode(int& key, const std::string& msg);
     void decrypt_modules(const std::string& decrypted);
     void decrypt_save_modules(const std::string& decrypted);
     std::string hex_to_dec(const std::string& hex);

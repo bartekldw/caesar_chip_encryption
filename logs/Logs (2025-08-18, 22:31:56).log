@@ -1,0 +1,14 @@
+[2025-08-18, 22:31:56] [INFO] Log module loaded
+[2025-08-18, 22:31:56] [INFO] File system init succesfull
+[2025-08-18, 22:31:56] [ASK] Asking user for menu operation
+[2025-08-18, 22:31:57] [INFO] User is decrypting message
+[2025-08-18, 22:31:57] [ASK] Asking user for encrypt mode
+[2025-08-18, 22:31:58] [ASK] Asking user for regular message path
+[2025-08-18, 22:32:12] [ASK] Asking user for key
+[2025-08-18, 22:32:14] [KEY] Succesfully imported key
+[2025-08-18, 22:32:14] [ASK] Ending key generation
+[2025-08-18, 22:32:57] [KEY] Sucesfully encoded message with XOR
+[2025-08-18, 22:32:57] [INFO] Saved decrypted message to txt file (../decrypted/decrypted_16/hex_unique_key_16.txt)
+[2025-08-18, 22:32:57] [INFO] Updated json config state
+[2025-08-18, 22:32:57] [ASK] Ending encrypting module
+[2025-08-18, 22:33:04] [INFO] Ended LOG module succesfully!

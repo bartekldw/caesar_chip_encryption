@@ -28,4 +28,6 @@ void Menu::create_key_modules(const std::string& key, int key_files_count){
     // aktualizuj config json
     file::save_json("keyTextFilesCount",(file::get_key_count()+1));
     log.write(LogWriter::log_type::INFO, "Updated json config state\n", false, "Zaktualizowano stan konfiguracji (config.json)"); std::cout << "\n";
+    log.write(LogWriter::log_type::ASK, "Ending key generation module\n", false, "Kliknij ENTER aby zakonczyc... "); 
+    std::cin.get();
 }

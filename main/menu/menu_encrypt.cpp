@@ -135,7 +135,7 @@ void Menu::get_key_from_user(int& key){
         // wyświetl stan błędu
         switch(err){
             case error_state::NUM:
-                log.write(LogWriter::log_type::WARNING, "Imported wrong data. Trying again\n", false, std::string(ansi::red)+"Klucz musi być liczbą!\n");
+                log.write(LogWriter::log_type::WARNING, "Imported wrong data. Trying again\n", false, std::string(ansi::blue)+"Klucz musi być liczbą!\n");
                 break;
         }
         // pobierz dane od użytkownika
@@ -191,7 +191,7 @@ void Menu::get_key_from_user(int& key){
                               "Twój unika-" << "  ▌ ▌▌▙▖▚ ▌▌▙▘\n" << 
                               "towy" << ansi::reset << " klucz: " << ansi::red << " ▙▖▛▌▙▖▄▌▛▌▌▌\n" << ansi::reset;
     // informuj o utworzonym kluczu i utwórz wektor odpowiadający bajtom klucza, użyte w pliku .bin
-    log.write(LogWriter::log_type::KEY, "Succesfully imported key from output\n", false, key_str+"\n"); 
+    log.write(LogWriter::log_type::KEY, "Succesfully imported key\n", false, key_str+"\n"); 
     // zakończ proces
     log.write(LogWriter::log_type::ASK, "Ending key generation\n", false, "Kliknij ENTER aby rozpoczac szyfrowanie... "); std::cin.get();
 }

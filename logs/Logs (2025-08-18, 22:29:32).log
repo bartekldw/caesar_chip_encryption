@@ -1,0 +1,16 @@
+[2025-08-18, 22:29:32] [INFO] Log module loaded
+[2025-08-18, 22:29:32] [INFO] File system init succesfull
+[2025-08-18, 22:29:32] [ASK] Asking user for menu operation
+[2025-08-18, 22:29:33] [INFO] User is encrypting message
+[2025-08-18, 22:29:33] [ASK] Asking user for encrypt mode
+[2025-08-18, 22:29:34] [ASK] Asking user for regular message path
+[2025-08-18, 22:29:39] [ASK] Asking user for key
+[2025-08-18, 22:29:45] [KEY] Succesfully imported key
+[2025-08-18, 22:29:45] [ASK] Ending key generation
+[2025-08-18, 22:31:15] [KEY] Sucesfully encoded message with Caesar's chip
+[2025-08-18, 22:31:15] [KEY] Displaying used key
+[2025-08-18, 22:31:15] [INFO] Saved char encrypted message to bin file (../encrypted/encrypted_38/char_unique_key_38.bin)
+[2025-08-18, 22:31:15] [INFO] Saved char encrypted message to txt file (../encrypted/encrypted_38/hex_unique_key_38.txt)
+[2025-08-18, 22:31:15] [INFO] Updated json config state
+[2025-08-18, 22:31:15] [ASK] Ending encrypting module
+[2025-08-18, 22:31:55] [INFO] Ended LOG module succesfully!
