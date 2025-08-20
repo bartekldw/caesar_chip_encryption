@@ -26,8 +26,8 @@ Projekt obsługuje:
 Projekt korzysta z CMake
 ### 1. Klonowanie repozytorium
 ```bash
-git clone https://github.com/bartekldw/xor_encryption.git
-cd xor_encryption
+git clone https://github.com/bartekldw/caesar_chip_encryption.git
+cd caesar_chip_encryption
 ```
 ### 2. Tworzenie katalogu build
 ```bash
