@@ -20,7 +20,7 @@ void Menu::create_key_modules(const std::string& key, int key_files_count){
     std::vector<unsigned char> bytes(key.begin(), key.end());
     // skopiuj do schowka
     int err_st = 0;
-    con::copyToClipboard(log, key,err_st);
+    con::copy_to_clipboard(log, key,err_st);
     if(err_st != 1){log.write(LogWriter::log_type::INFO, "Copied key to clipboard\n", false, "Skopiowano klucz do schowka"); std::cout << "\n";}
     // zapisz do .bin
     file::save_bin(new_path+"unique_key_"+std::to_string(file::get_key_count())+".bin", bytes);

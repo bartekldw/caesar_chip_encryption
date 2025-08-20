@@ -17,6 +17,12 @@ private:
     bool completed = false;
     // enum class do przechwycenia błędu wejścia
     enum class error_state {NONE, CIN, NUM};
+    // czy animacja?
+    #ifdef ANIMATION_MODE
+        bool animation = true;
+    #else  
+        bool animation = false; 
+    #endif
     // pomocnicze funkcje:
     // dla klucza:
     void create_key_modules(const std::string& key, int key_files_count);

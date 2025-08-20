@@ -219,12 +219,16 @@ void Menu::encrypt_save_modules(const std::string& msg, const std::string& hex_m
         std::filesystem::create_directories(new_path_encrypted);
     }
     std::vector<unsigned char> bytes(msg.begin(), msg.end());
+    // skopiuj do schowka
+    int err = 0;
+    con::copy_to_clipboard(log, msg, err);
+    if(err != 1){log.write(LogWriter::log_type::INFO, "Copied key to clipboard\n", false, "Skopiowano zaszyfrowaną wiadomość do schowka"); std::cout << "\n";}
     // zapisz do .bin
     file::save_bin(new_path_encrypted+"unique_key_"+std::to_string(encrypted_files_count)+".bin", bytes);
     log.write(LogWriter::log_type::INFO, "Saved char encrypted message to bin file ("+new_path_encrypted+"char_unique_key_"+std::to_string(encrypted_files_count)+".bin)\n", false, "Zapisano znakowo do pliku binarnego ("+new_path_encrypted+"char_unique_key_"+std::to_string(encrypted_files_count)+".bin)"); std::cout << "\n";
-    // zapis do .txt szesnastkowo
-    file::save_txt(new_path_encrypted+"hex_unique_key_"+std::to_string(encrypted_files_count)+".txt", hex_msg);
-    log.write(LogWriter::log_type::INFO, "Saved char encrypted message to txt file ("+new_path_encrypted+"hex_unique_key_"+std::to_string(encrypted_files_count)+".txt)\n", false, "Zapisano szesnastkowo do pliku tekstowego ("+new_path_encrypted+"char_unique_key_"+std::to_string(encrypted_files_count)+".txt)"); std::cout << "\n";
+    // zapis do .txt
+    file::save_txt(new_path_encrypted+"char_unique_key_"+std::to_string(encrypted_files_count)+".txt", hex_msg);
+    log.write(LogWriter::log_type::INFO, "Saved char encrypted message to txt file ("+new_path_encrypted+"char_unique_key_"+std::to_string(encrypted_files_count)+".txt)\n", false, "Zapisano znakowo do pliku tekstowego ("+new_path_encrypted+"char_unique_key_"+std::to_string(encrypted_files_count)+".txt)"); std::cout << "\n";
     // aktualizuj config json
     file::save_json("encryptedFilesCount",encrypted_files_count);
     log.write(LogWriter::log_type::INFO, "Updated json config state\n", false, "Zaktualizowano stan konfiguracji (config.json)"); std::cout << "\n";

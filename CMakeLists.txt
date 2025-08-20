@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-set(project_name main)
+set(project_name caesar_chiper)
 project(${project_name})
 message(STATUS "Konfiguracja rozpoczęta...")
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -20,4 +20,7 @@ set(src
 message(STATUS "Ustawiono docelowe pliki")
 add_executable(${project_name} ${src})
 target_include_directories(${project_name} PRIVATE encryption)
+# Usuń linijke poniżej jeżeli nie chcesz animacji szyfrowania i deszyfrowania (JEŻELI JUŻ SKOMPILOWANO, NALEŻY PRZEBUDOWAĆ FOLDER build)
+add_compile_definitions(ANIMATION_MODE)
+#######################################
 message(STATUS "Kompilacja gotowa!")

@@ -12,7 +12,7 @@ private:
     U"ąćęłńóśżźĄĆĘŁŃÓŚŻŹ";
 public:
     void set_key(int new_key){this->key = new_key;} // ustawia nowy klucz
-    std::string ceaser_chip_encrypt(const std::string& msg); // główna funkcja do szyfrowania
-    std::string ceaser_chip_decrypt(const std::string& msg);
+    std::string ceaser_chip_encrypt(const std::string& msg, bool animation); // główna funkcja do szyfrowania
+    std::string ceaser_chip_decrypt(const std::string& msg, bool animation);
     static std::string return_hex(const std::string& msg);
 };

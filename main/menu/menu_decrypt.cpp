@@ -30,12 +30,12 @@ std::string Menu::hex_to_dec(const std::string& hex){
 
 // Funkcja uruchamiająca moduły do deszyfrowania
 void Menu::decrypt_modules(const std::string& decrypted){
-    std::cout << ansi::green << "▄▄▄▄▄▄▄▄▄▄▄    ▖▖▄▖▄▖\n" << 
-                                "Pomyślnie      ▚▘▌▌▙▘\n" <<
-                                "odszyfrowano!: ▌▌▙▌▌▌\n" << ansi::reset;
+    ansi::clear_console();
+    std::cout << ansi::red << "▄▄▄▄▄▄▄▄▄▄▄   ▄▖▄▖▄▖▄▖▄▖▄▖\n" << 
+                              "Pomyślnie" << "     ▌ ▌▌▙▖▚ ▌▌▙▘\n" << 
+                              "odszyfrowano!" << ansi::red << " ▙▖▛▌▙▖▄▌▛▌▌▌\n" << ansi::reset;
     // usun niepotrzebne znaki nowej linii jako kopia (nadal zapisywane w plikach)
-    log.write(LogWriter::log_type::KEY, "Sucesfully encoded message with XOR\n", false, decrypted);
-    std::cout << std::string(ansi::gray) << " [" << ansi::green << "HEX" << ansi::gray << "]\n" << ansi::reset;
+    log.write(LogWriter::log_type::KEY, "Sucesfully encoded message with caesar chip\n", false, decrypted); std::cout << "\n";
     // dodatkowe moduły zapisujące szyfr do plików
     decrypt_save_modules(decrypted);
 }
@@ -49,8 +49,8 @@ void Menu::decrypt_save_modules(const std::string& decrypted){
         std::filesystem::create_directories(new_path_decrypted);
     }
     // zapis do .txt 
-    file::save_txt(new_path_decrypted+"hex_unique_key_"+std::to_string(decrypted_files_count)+".txt", decrypted);
-    log.write(LogWriter::log_type::INFO, "Saved decrypted message to txt file ("+new_path_decrypted+"hex_unique_key_"+std::to_string(decrypted_files_count)+".txt)\n", false, "Zapisano do pliku tekstowego ("+new_path_decrypted+"hex_unique_key_"+std::to_string(decrypted_files_count)+".txt)"); std::cout << "\n";
+    file::save_txt(new_path_decrypted+"char_unique_decrypted_"+std::to_string(decrypted_files_count)+".txt", decrypted);
+    log.write(LogWriter::log_type::INFO, "Saved decrypted message to txt file ("+new_path_decrypted+"char_unique_decrypted"+std::to_string(decrypted_files_count)+".txt)\n", false, "Zapisano do pliku tekstowego ("+new_path_decrypted+"char_unique_decrypted_"+std::to_string(decrypted_files_count)+".txt)"); std::cout << "\n";
     // aktualizuj config json
     file::save_json("decryptedFilesCount",decrypted_files_count);
     log.write(LogWriter::log_type::INFO, "Updated json config state\n", false, "Zaktualizowano stan konfiguracji (config.json)"); std::cout << "\n";

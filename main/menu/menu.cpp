@@ -105,17 +105,13 @@ void Menu::encrypt_key(){
         case 2: // szyfrowanie z ciągu znaków
             get_message_from_output(msg); break;
     }
-    // debug
-    std::cout << "msg: " << msg << std::endl;
     std::cin.get();
     // pobierz klucz i ustaw go w klasie szyfrowania
     get_key_from_user(key);
     encryption.set_key(key);
-    // debug
-    std::cout << "key: " << key << std::endl;
     std::cin.get();
     // rozpocznij generowanie
-    std::string encrypted = encryption.ceaser_chip_encrypt(msg);
+    std::string encrypted = encryption.ceaser_chip_encrypt(msg, animation);
     // wywołaj moduły po wygenerowaniu klucza
     encrypt_modules(encrypted, std::to_string(key));
 }
@@ -133,6 +129,6 @@ void Menu::decrypt_key(){
     }
     get_key_to_decode(key, encrypted_msg);
     encryption.set_key(key);
-    std::string decrypted = encryption.ceaser_chip_decrypt(encrypted_msg);
+    std::string decrypted = encryption.ceaser_chip_decrypt(encrypted_msg, animation);
     decrypt_modules(decrypted);
 }

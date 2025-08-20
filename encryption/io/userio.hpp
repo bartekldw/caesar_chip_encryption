@@ -30,7 +30,7 @@ struct ansi{
     static void clear_console();
 };
 struct con{
-    static void copyToClipboard(LogWriter& log, const std::string& msg, int& err_stat);
+    static void copy_to_clipboard(LogWriter& log, const std::string& msg, int& err_stat);
     static void print_encrypt_header(bool decrypting = false);
     static std::u32string to_u32string(const std::string& str);
     static std::u32string to_utf8string(const std::u32string& str32);

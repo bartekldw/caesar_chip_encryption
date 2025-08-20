@@ -30,10 +30,10 @@ void ansi::clear_console(){
         system("clear"); // Linux / macOS / inne UNIX
     #endif
 }
-// Główna funkcja con: copyToClipboard() - kopiuje podany tekst do systemowego schowka
+// Główna funkcja con: copy_to_clipboard() - kopiuje podany tekst do systemowego schowka
 // Windows: korzysta z natywnego WinAPI (OpenClipboard, EmptyClipboard, GlobalAlloc, SetClipboardData)
-// Linux/Unix: używa zewnętrznego narzędzia `xclip` z opcją `-selection clipboard` (wymaga instalacji xclip)
-void con::copyToClipboard(LogWriter& log, const std::string& msg, int& err_stat) {
+// Linux/Unix: używa zewnętrznego narzędzia `xclip` z opcją `-selection clipboard` (wymaga instalacji xclip - sprawdzane)
+void con::copy_to_clipboard(LogWriter& log, const std::string& msg, int& err_stat) {
 #ifdef _WIN32
     if (!OpenClipboard(nullptr)) {
         log.write(LogWriter::log_type::ERROR, "Can't open clipboard!", false,
