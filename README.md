@@ -1,5 +1,5 @@
 # Szyfrowanie Cezara (terminal, C++) [PL 🇵🇱]
-Sprawdź również mój podobny projekt przedstawiający <a href="https://github.com/bartekldw/xor_encryption">szyfrowanie XOR </a>
+## Sprawdź również mój podobny projekt przedstawiający <a href="https://github.com/bartekldw/xor_encryption">szyfrowanie XOR </a>
 
 Prosty program pokazujący szyfrowanie Cezara w terminalu
 Projekt obsługuje:
@@ -41,7 +41,7 @@ make
 ```
 ### 4. Uruchomienie programu
 ```bash
-./xor_encrypt
+./caesar_chiper
 ```
 ## Dodatkowe biblioteki
 Projekt korzysta z dodatkowej biblioteki: <a href="https://github.com/nlohmann/json"> nlohmannjson </a>
